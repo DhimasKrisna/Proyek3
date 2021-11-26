@@ -32,19 +32,14 @@
     <div class="topbar border d-none d-sm-none d-md-block">
         <div class="container ">
             <div class="row justify-content-between">
-                <p>Nomor Telepon: +0341366260 | Email: bakesbangpol@malangkab.go.id</p>
+                <p>Nomor Telepon: 082232114507 | Email: bawangBagor@gmail.com</p>
                 <?php
-                if ($this->session->userdata('nik') != null) {
+                if ($this->session->userdata('username') != null) {
                 ?>
-                    <p>user : <?= $this->session->userdata('nik') ?></p>
+                    <p>user : <?= $this->session->userdata('username') ?></p>
                 <?php
                 }
                 ?>
-                <ul class="d-flex social-icon">
-                    <li><a href="#" class="faicon-facebook rounded-circle"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="#" class="faicon-twitter rounded-circle"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#" class="faicon-instagram rounded-circle"><i class="fab fa-instagram"></i></a></li>
-                </ul>
             </div>
         </div>
     </div>
@@ -53,70 +48,49 @@
     <!-- Header -->
     <div class="container" id="header">
         <a href="#" class=>
-            <img src="<?= base_url(); ?>assets/img/logo_kabmalang.png" alt="" />
+            <!-- <img src="/baseUrl/assets/img/logo_kabmalang.png" alt="" /> -->
         </a>
-        <a id="header-text" href="">Badan Kesatuan Bangsa dan Politik Kabupaten Malang</a>
+        <a id="header-text" href="">Aplikasi Perkiraan Harga Bawang Merah Kecamatan Bagor</a>
     </div>
     <!-- akhir header -->
 
     <!-- header -->
     <header>
-        <marquee behavior="scroll" direction="right">Selamat datang di Badan Kesatuan Bangsa dan Politik Kabupaten Malang</marquee>
+        <!-- <marquee behavior="scroll" direction="right">Selamat datang di Badan Kesatuan Bangsa dan Politik Kabupaten Malang</marquee> -->
 
-        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-success mb-3">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-success mb-3 mt-3">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-4">
                     <li class="nav-item">
-                        <a href="<?= base_url('user/index') ?>" class="nav-link">Beranda</a>
+                        <a href="<?= base_url('user/visi') ?>" class="nav-link">Beranda</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" class="nav-link dropdown-toggle">Profile
-                        </a>
-                        <div aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
-                            <a href="<?= base_url('user/visi') ?>" class="dropdown-item">
-                                <font color="black">Visi & Misi
-                            </a></font>
-                            <a href="#" class="dropdown-item">
-                                <font color="black">Struktur Organisasi
-                            </a></font>
-                        </div>
+
+                    <li class="nav-item">
+                        <a href="<?= base_url('user/puskomin') ?>" class="nav-link">Puskomin</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a href="<?= base_url('user/politik') ?>" class="nav-link">Politik</a>
-                    </li> -->
-                    <?php
-                    if ($this->session->userdata('nik')) { ?>
-                        <li class="nav-item">
-                            <a href="<?= base_url('user/ormas') ?>" class="nav-link">Ormas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('user/tempat_ibadah') ?>" class="nav-link">Tempat Ibadah</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url('user/puskomin') ?>" class="nav-link">Puskomin</a>
-                        </li>
-                    <?php } ?>
-                    <li class="nav-item dropdown">
+                    
+                    
+                    <!-- <li class="nav-item dropdown">
                         <a id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" class="nav-link dropdown-toggle">Layanan Penelitian
                         </a>
                         <div aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
-                            <a href="<?= base_url('layanan/layanan_penelitian') ?>" class="dropdown-item">
+                            <a href="baseulr()layanan/layanan_penelitian" class="dropdown-item">
                                 <font color="black">Ajukan Surat
                             </a></font>
-                            <a href="<?= base_url('layanan/lihat_status') ?>" class="dropdown-item">
+                            <a href="bs()layanan/lihat_status" class="dropdown-item">
                                 <font color="black">Lihat Status Surat
                             </a></font>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav ml-auto">
                     <?php
-                    if ($this->session->userdata('nik')) { ?>
+                    if ($this->session->userdata('username')) { ?>
                         <a href="<?= base_url('main/logout') ?>" class="nav-item nav-link">Logout</a>
                     <?php } ?>
                 </div>

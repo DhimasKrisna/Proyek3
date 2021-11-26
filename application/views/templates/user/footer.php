@@ -15,8 +15,8 @@
                 <ul id="berita-footer">
                     <?php
                     $no = 1;
-                    $this->db->where('level', 'biasa');
-                    $query =  $this->db->get('umum_puskomin');
+                    // $this->db->where('level', 'biasa');
+                    $query =  $this->db->get('jenis_bawang');
 
                     foreach ($query->result() as $row) {
                     ?>
