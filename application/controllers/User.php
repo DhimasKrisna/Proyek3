@@ -12,14 +12,9 @@ class User extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Badan Kesatuan Bangsa dan Politik';
+        $data['title'] = 'Visi & Misi | Badan Kesatuan Bangsa dan Politik';
         $this->load->view('templates/user/header', $data);
-        $this->load->view('main/user/beranda');
-
-        if ($id = $this->input->get('lg') != null) {
-            $this->load->view('templates/user/alert');
-        }
-
+        $this->load->view('main/user/visi');
         $this->load->view('templates/user/footer');
     }
 
@@ -183,13 +178,35 @@ class User extends CI_Controller
     // puskomin
     public function puskomin()
     {
-        $data['title'] = 'Puskomin | Badan Kesatuan Bangsa dan Politik';
-        $data['biasa'] = $this->Model_user->month_data("01");
-        $data['segera'] = $this->Model_user->month_data("02");
-        $data['penting'] = $this->Model_user->month_data("03");
+        $data['title'] = 'Puskomin | List Hasil Panen Bawang Merah';
 
         $this->load->view('templates/user/header', $data);
         $this->load->view('main/user/puskomin', $data);
+        $this->load->view('templates/user/footer');
+    }
+
+    public function puspar()
+    {
+        $data['title'] = 'Puspar | List Harga Bawang Merah';
+
+        $this->load->view('templates/user/header', $data);
+        $this->load->view('main/user/puspar', $data);
+        $this->load->view('templates/user/footer');
+    }
+
+    public function perkiraan()
+    {
+        $data['title'] = 'Perkiraan Harga Bawang Merah';
+
+        $bulan = $this->input->get('bul');
+        $tmp= $bulan-2;
+
+        $data['kirapanen'] = $this->Model_user->perkiraan($tmp);
+        $data['jumlah_ru'] = $this->Model_user->jumlah_ru($tmp);
+        $data['bulan'] = $bulan;
+
+        $this->load->view('templates/user/header', $data);
+        $this->load->view('main/user/perkiraan', $data);
         $this->load->view('templates/user/footer');
     }
 

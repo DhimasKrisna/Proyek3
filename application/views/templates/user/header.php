@@ -69,7 +69,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="<?= base_url('user/puskomin') ?>" class="nav-link">Puskomin</a>
+                        <a href="<?= base_url('user/puskomin') ?>" class="nav-link">Hasil Panen 2020</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="<?= base_url('user/puspar') ?>" class="nav-link">Harga Pasar 2020</a>
                     </li>
                     
                     
@@ -88,9 +92,11 @@
                 </ul>
             </div>
             <div class="collapse navbar-collapse" id="navbarNav">
+                
                 <div class="navbar-nav ml-auto">
                     <?php
                     if ($this->session->userdata('username')) { ?>
+                        <a href="<?= base_url('admin/index') ?>" class="nav-item nav-link">Halaman User</a>
                         <a href="<?= base_url('main/logout') ?>" class="nav-item nav-link">Logout</a>
                     <?php } ?>
                 </div>

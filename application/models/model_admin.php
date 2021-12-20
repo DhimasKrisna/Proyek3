@@ -50,12 +50,13 @@ class Model_admin extends CI_Model
     //user
 
     
-    function tambah_sawah($pemilik, $jenis, $tanam)
+    function tambah_sawah($pemilik, $jenis, $tanam, $luas)
     {
         $data_user = [
             'pemilik' => $pemilik,
             'jenis' => $jenis,
-            'tgl_tanam' => $tanam
+            'tgl_tanam' => $tanam,
+            'luas_ru' => $luas
         ];
 
         $this->db->insert('sawah', $data_user);
@@ -66,6 +67,7 @@ class Model_admin extends CI_Model
         $this->db->set('pemilik', $data['pemilik']);
         $this->db->set('jenis', $data['jenis']);
         $this->db->set('tgl_tanam', $data['tgl_tanam']);
+        $this->db->set('luas_ru', $data['luas_ru']);
         $this->db->where('id', $data['id']);
         $this->db->update('sawah');
     }

@@ -7,37 +7,23 @@
             <div class="col-sm-4 d-none d-sm-none d-md-block">
                 <h5><i class="fas fa-briefcase"></i> Tentang Kami</h5>
                 <hr>
-                <p>Berikut ini adalah website Badan Kesatuan Bangsa dan Politik Kabupaten Malang yang saat ini berada dalam tahap pengembangan</p>
+                <p>Berikut ini adalah aplikasi website perkiraan harga bawang merah di kecamatan bagor</p>
             </div>
             <div class="col-sm-4 d-none d-sm-none d-md-block">
-                <h5><i class="far fa-newspaper"></i> Berita Terkini</h5>
-                <hr>
+                <!-- <h5><i class="far fa-newspaper"></i></h5> -->
+                <!-- <hr> -->
                 <ul id="berita-footer">
-                    <?php
-                    $no = 1;
-                    // $this->db->where('level', 'biasa');
-                    $query =  $this->db->get('jenis_bawang');
-
-                    foreach ($query->result() as $row) {
-                    ?>
-                        <li></li>
-                    <?php
-                        $no = $no + 1;
-                        if ($no > 6) {
-                            break;
-                        }
-                    }
-                    ?>
+                    
                 </ul>
             </div>
             <div class="col-sm-4 d-none d-sm-none d-md-block">
                 <h5><i class="fas fa-map-marker-alt"> </i> Alamat</h5>
                 <hr>
                 <ul id="alamat-footer">
-                    <li>Jalan K. Haji Agus Salim No. 7</li>
-                    <li>Klojen, Kiduldalem, Kec. Klojen</li>
-                    <li>Kota Malang, Jawa Timur</li>
-                    <li>65118</li>
+                    <!-- <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li> -->
                 </ul>
             </div>
         </div>

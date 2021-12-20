@@ -124,8 +124,18 @@ class Admin extends CI_Controller
     public function daftar_sawah()
     {
         $data['title'] = 'Daftar User | Admin';
+
         $this->load->view('templates/admin/header', $data);
         $this->load->view('main/admin/tabel/sawah');
+        $this->load->view('templates/admin/footer');
+    }
+
+    public function daftar_sawahUser()
+    {
+        $data['title'] = 'Daftar User | Admin';
+
+        $this->load->view('templates/admin/header', $data);
+        $this->load->view('main/admin/tabel/sawahUser');
         $this->load->view('templates/admin/footer');
     }
 
@@ -136,25 +146,54 @@ class Admin extends CI_Controller
         $this->load->view('main/admin/tambah_sawah');
         $this->load->view('templates/admin/footer');
     }
+    public function tampil_tambah_sawahUser()
+    {
+        $data['title'] = 'Tambah Data Penanaman | Admin';
+        $data['username'] = $this->input->get('user');
+        
+        $this->load->view('templates/admin/header', $data);
+        $this->load->view('main/admin/tambah_sawahUser');
+        $this->load->view('templates/admin/footer');
+    }
 
     public function aksi_tambah_sawah()
     {
         // $this->form_validation->set_rules('nik', 'NIK', 'required');
-        $this->form_validation->set_rules('pemilik', 'pemilik', 'required');
+        if( $this->input->get('username') != null) {
+            $username = $this->input->get('username');
+        }
+
+        if( $this->input->get('username') == null) {
+            $this->form_validation->set_rules('pemilik', 'pemilik', 'required');
+        } 
+        
         $this->form_validation->set_rules('jenis', 'jenis', 'required');
         $this->form_validation->set_rules('tanam', 'tanam', 'required');
+        $this->form_validation->set_rules('luas', 'luas', 'required');
         $data['title'] = "Tambah Data Penanaman | Admin";
 
         if ($this->form_validation->run() == false) {
             redirect('admin/index');
         } else {
             // $nik = htmlspecialchars($this->input->post('nik'));
-            $pemilik = htmlspecialchars($this->input->post('pemilik'));
+            if( $username != null) {
+                $pemilik = $username;
+            } else {
+                $pemilik = htmlspecialchars($this->input->post('pemilik'));
+            }
+            
             $jenis = htmlspecialchars($this->input->post('jenis'));
             $tanam = htmlspecialchars($this->input->post('tanam'));
+            $luas = htmlspecialchars($this->input->post('luas'));
             
-            $this->Model_admin->tambah_sawah($pemilik, $jenis, $tanam);
-            redirect('admin/daftar_sawah');
+            $this->Model_admin->tambah_sawah($pemilik, $jenis, $tanam, $luas);
+
+            if( $username != null) {
+                redirect('admin/daftar_sawahUser');
+            } else {
+                redirect('admin/daftar_sawah');
+            }
+            
             
         }
     }
@@ -182,11 +221,13 @@ class Admin extends CI_Controller
         $pemilik = htmlspecialchars($this->input->post('pemilik'));
         $jenis = htmlspecialchars($this->input->post('jenis'));
         $tanam = htmlspecialchars($this->input->post('tanam'));
+        $luas = htmlspecialchars($this->input->post('luas'));
         $data = array(
             'id' => $id,
             'pemilik' => $pemilik,
             'jenis' => $jenis,
-            'tgl_tanam' => $tanam
+            'tgl_tanam' => $tanam,
+            'luas_ru' => $luas
         );
         if ($this->session != null) {
             $this->Model_admin->edit_sawah($data);

@@ -41,6 +41,12 @@
                     <span>Beranda</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('user/index') ?>">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Halaman Prediksi</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider" />
 
@@ -48,42 +54,80 @@
             <div class="sidebar-heading">Fitur</div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/tampil_tambah_user') ?>">
-                    <i class="far fa-circle"></i>
-                    <span>Tambah User</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/verif_user') ?>">
-                    <i class="far fa-circle"></i>
-                    <span>Verifikasi User</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/tampil_tambah_sawah') ?>">
-                    <i class="far fa-circle"></i>
-                    <span>Tambah Penanaman</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('admin/tampil_tambah_harga') ?>">
-                    <i class="far fa-circle"></i>
-                    <span>Tambah Harga</span></a>
-            </li>
+            <?php
+                if ($this->session->userdata('username') == "admin") { ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('admin/tampil_tambah_user') ?>">
+                        <i class="far fa-circle"></i>
+                        <span>Tambah User</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('admin/verif_user') ?>">
+                        <i class="far fa-circle"></i>
+                        <span>Verifikasi User</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('admin/tampil_tambah_harga') ?>">
+                        <i class="far fa-circle"></i>
+                        <span>Tambah Harga</span></a>
+                </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-th-list"></i>
-                    <span>Lihat Tabel</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Daftar Tabel:</h6>
-                        <a href="<?= base_url('admin/daftar_user') ?>" class="collapse-item">User</a>
-                        <a href="<?= base_url('admin/daftar_sawah') ?>" class="collapse-item">Penanaman</a>
-                        <a href="<?= base_url('admin/daftar_harga') ?>" class="collapse-item">Harga</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('admin/tampil_tambah_sawah') ?> ">
+                        <i class="far fa-circle"></i>
+                        <span>Tambah Penanaman</span></a>
+                </li>
+
+
+            <?php } ?>
+            
+            <!-- user -->
+            <?php
+                if ($this->session->userdata('username') != "admin") { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('admin/tampil_tambah_sawahUser?user=') . $_SESSION['username'] ?> ">
+                            <i class="far fa-circle"></i>
+                            <span>Tambah Penanaman</span></a>
+                    </li>
+            <?php } ?>
+            
+            <?php
+                if ($this->session->userdata('username') == "admin") { ?>
+                <!-- Nav Item - Utilities Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-th-list"></i>
+                        <span>Lihat Tabel</span>
+                    </a>
+                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Daftar Tabel:</h6>
+                            <a href="<?= base_url('admin/daftar_user') ?>" class="collapse-item">User</a>
+                            <a href="<?= base_url('admin/daftar_sawah') ?>" class="collapse-item">Penanaman</a>
+                            <a href="<?= base_url('admin/daftar_harga') ?>" class="collapse-item">Harga</a>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            <?php } ?>
+
+            <?php
+                if ($this->session->userdata('username') != "admin") { ?>
+                <!-- Nav Item - Utilities Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-th-list"></i>
+                        <span>Lihat Tabel</span>
+                    </a>
+                    <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Daftar Tabel:</h6>
+                            <a href="<?= base_url('admin/daftar_sawahUser') ?>" class="collapse-item">Penanaman</a>
+                        </div>
+                    </div>
+                </li>
+            <?php } ?>
+
+
             <li class="nav-item">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt"></i>

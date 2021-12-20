@@ -4,6 +4,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Model_user extends CI_Model
 {
+    // Perkiraan
+    function perkiraan($bulan)
+    {
+        return $this->db->query("SELECT pemilik FROM `sawah` WHERE month(tgl_tanam)='$bulan' and year(tgl_tanam) = '2021'")->result_array();
+    }
+
+    // Perkiraan
+    function jumlah_ru($bulan)
+    {
+        return $this->db->query("SELECT SUM(luas_ru) as banyak FROM sawah WHERE month(tgl_tanam)='$bulan' and year(tgl_tanam) = '2021'")->result_array();
+    }
+
     // Politik
     function tambah_parpol($data)
     {
@@ -78,10 +90,6 @@ class Model_user extends CI_Model
         return $this->db->query("SELECT * FROM umum_puskomin WHERE id='$id'")->result_array();
     }
 
-    function month_data($month)
-    {
-        return $this->db->query("SELECT * FROM harga_bawang WHERE month(tanggal_panen)='$month' AND year(tanggal_panen) = '2020'")->result_array();
-    }
 
     // function puskomin_penting()
     // {

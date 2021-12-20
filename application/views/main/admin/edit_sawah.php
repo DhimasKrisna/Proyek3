@@ -49,6 +49,11 @@
                             <label for="tanam">Tanggal Tanam</label>
                             <input type="date" name="tanam" id="tanam" class="form-control">
                         </div>
+
+                        <div class="form-group">
+                            <label for="luas">Luas Sawah (ru)</label>
+                            <input type="text" name="luas" id="luas" class="form-control">
+                        </div>
                         
                         <button type="submit" class="btn btn-success">Edit</button>
                     </form>

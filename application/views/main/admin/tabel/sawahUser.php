@@ -16,7 +16,6 @@
                             <th>Jenis</th>
                             <th>Tanggal Tanam</th>
                             <th>Luas Sawah (ru)</th>
-                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,10 +33,6 @@
                                 <td><?= $row->jenis ?></td>
                                 <td><?= $row->tgl_tanam ?></td>
                                 <td><?= $row->luas_ru ?></td>
-                                <td>
-                                    <a href="<?= base_url('admin/edit_sawah?id=' . $row->id) ?>" class="btn btn-primary">Edit</a>
-                                    <a href="<?= base_url('admin/hapus_sawah?id=' . $row->id) ?>" class="btn btn-danger">Hapus</a>
-                                </td>
                             </tr>
                         <?php
                             $no = $no + 1;

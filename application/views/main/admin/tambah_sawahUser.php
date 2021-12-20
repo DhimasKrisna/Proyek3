@@ -13,21 +13,11 @@
                     <h6 class="m-0 font-weight-bold text-primary">Masukkan Data :</h6>
                 </div>
                 <div class="card-body">
-                    <form action="<?= base_url('admin/aksi_tambah_sawah') ?>" method="POST">
-                        
+                    <form action="<?= base_url('admin/aksi_tambah_sawah?username=') . $username ?>" method="POST">
+                    
                         <div class="form-group">
                             <label for="pemilik">Pemilik</label>
-                            <select name="pemilik" id="pemilik" class="custom-select">
-                                <?php
-                                    // $this->db->where('role', 'user');
-                                    $query = $this->db->get('user');
-                                    foreach ($query->result() as $row) {
-                                    ?>
-                                    <option value=<?= $row->username?>><?= $row->username?></option>
-                                <?php
-                                    }
-                                    ?>
-                            </select>
+                            <input type="text" name="pemilik" id="pemilik" class="form-control" value="<?=$username?>" readonly>
                         </div>
 
                         <div class="form-group">

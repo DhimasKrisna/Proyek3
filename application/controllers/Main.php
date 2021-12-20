@@ -42,7 +42,7 @@ class Main extends CI_Controller
                     $this->session->set_userdata('id', $row->id);
                     $this->session->set_userdata('role', $row->role);
                     if ($row->role === 'user') {
-                        redirect('admin/index', 'refresh');
+                        redirect('user/index', 'refresh');
                     } else if ($row->role === 'admin') {
                         redirect('admin/index', 'refresh');
                     }
